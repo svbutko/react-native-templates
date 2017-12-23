@@ -1,0 +1,32 @@
+<templateSet group="Redux">
+  <template name="actn" value="static $ACTION$ = actionCreator.async&lt;$FIRSTPARAM$, $SECONDPARAM$, Error&gt;(&quot;$MAINNAME$/$ACTIONNAME$&quot;);" description="Inserts commonly used redux action" toReformat="false" toShortenFQNames="true">
+    <variable name="ACTION" expression="camelCase(String)" defaultValue="ACTION" alwaysStopAt="true" />
+    <variable name="FIRSTPARAM" expression="jsSuggestVariableName()" defaultValue="" alwaysStopAt="true" />
+    <variable name="SECONDPARAM" expression="jsSuggestVariableName()" defaultValue="" alwaysStopAt="true" />
+    <variable name="MAINNAME" expression="firstWord(String)" defaultValue="" alwaysStopAt="true" />
+    <variable name="ACTIONNAME" expression="capitalize(String)" defaultValue="ACTION" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="sactn" value="static $NAME$($PARAM$: $TYPE$): SimpleThunk {&#10;    return async (dispatch): Promise&lt;void&gt; =&gt; {&#10;        try {&#10;            dispatch($ACTIONS$.$ACTION$.started($PARAM$));&#10;            const response = $END$;&#10;            dispatch($ACTIONS$.$ACTION$.done({params: $PARAM$, result: response}));&#10;        } catch (error) {&#10;            dispatch($ACTIONS$.$ACTION$.failed({params: $PARAM$, error: error}));&#10;        }&#10;    };&#10;}" description="Inserts commonly used redux async action" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="jsMethodName()" defaultValue="action" alwaysStopAt="true" />
+    <variable name="PARAM" expression="camelCase(String)" defaultValue="params" alwaysStopAt="true" />
+    <variable name="TYPE" expression="jsComponentTypeOf(Array)" defaultValue="Object" alwaysStopAt="true" />
+    <variable name="ACTIONS" expression="jsSuggestVariableName()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ACTION" expression="jsMethodName()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="hndlr" value="function $NAME$(state: $STATE$, $END$): $STATE$ {&#10;    return newState(state, {});&#10;}" description="Inserts commonly used handler-function for redux reducer" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="jsDefineParameter()" defaultValue="" alwaysStopAt="true" />
+    <variable name="STATE" expression="jsDefineParameter()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+</templateSet>

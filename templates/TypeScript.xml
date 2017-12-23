@@ -1,0 +1,51 @@
+<templateSet group="TypeScript">
+  <template name="txts" value="$NAME$: {&#10;    fontFamily: $FONT$,&#10;    fontSize: $SIZE$,&#10;    $END$&#10;} as TextStyle," description="Inserts TextStyle with the frequently used params" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="jsSuggestVariableName()" defaultValue="textStyle" alwaysStopAt="false" />
+    <variable name="FONT" expression="jsDefineParameter()" defaultValue="FontNames.regular" alwaysStopAt="false" />
+    <variable name="SIZE" expression="jsDefineParameter()" defaultValue="14" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="views" value="$NAME$: {&#10;    flex: $FLEX$,&#10;    backgroundColor: $COLOR$,&#10;    $END$&#10;} as ViewStyle," description="Inserts ViewStyle with the frequently used params" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="jsSuggestVariableName()" defaultValue="viewStyle" alwaysStopAt="true" />
+    <variable name="FLEX" expression="jsDefineParameter()" defaultValue="1" alwaysStopAt="true" />
+    <variable name="COLOR" expression="jsDefineParameter()" defaultValue="&quot;white&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="stls" value="const styles = styleSheetCreate({&#10;    container: {&#10;        flex: 1,&#10;        backgroundColor: &quot;white&quot;&#10;    } as ViewStyle,&#10;    text: {&#10;        fontFamily: FontNames.regular,&#10;        fontSize: 14,&#10;    } as TextStyle,&#10;    $END$&#10;});" description="Inserts styles constant with the frequently styles" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="imgs" value="$NAME$: {&#10;    width: $WIDTH$,&#10;    heigth: $HEIGTH$,&#10;    resizeMode: &quot;contain&quot;,&#10;} as ImageStyle," description="Inserts ImageStyle with the frequently used params" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="jsSuggestVariableName()" defaultValue="imageStyle" alwaysStopAt="true" />
+    <variable name="WIDTH" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="HEIGTH" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="cntr" value="constructor(props: $NAME$) {&#10;    super(props);&#10;    this.state = {$END$};&#10;}" description="Inserts a class constructor with a state params definition" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="arwf" value="private $NAME$ = ($PARAMS$): $TYPE$ =&gt; {&#10;    $END$&#10;};" description="Inserts an arrow function" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="jsMethodName()" defaultValue="" alwaysStopAt="true" />
+    <variable name="PARAMS" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="TYPE" expression="jsComponentTypeOf(Array)" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+</templateSet>
